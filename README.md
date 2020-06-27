@@ -7,12 +7,12 @@ Additional information can be found in the readme.md files for each sub folder
 ## Useful Macro's
 
 ### Rolling against Crit or Fumble tables (and others)
-/r 1t[Critical-Hits]
+* /r 1t[Critical-Hits]
 
 Or
 
-/r 1t[Critical-Miss]
+* /r 1t[Critical-Miss]
 
 ### Quick Initiative Macro selected (adding to tracker)
-@{selected|token_name}'s Initiative Roll: [[1d20+@{selected|Initiative_bonus} &{tracker}]]
+* @{selected|token_name}'s Initiative Roll: [[1d20+@{selected|Initiative_bonus} &{tracker}]]
 
