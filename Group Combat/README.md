@@ -8,6 +8,7 @@
 
 ## Manually Add:
 * ApplyDamage.js (This Repo)
+* DeleteDead.js (This Repo)
 
 ### Setup Group Initiative (once Only):
 
@@ -40,7 +41,6 @@ Or run the following to use the menu system
 ### Group Combat setup (run once):
 
 * !group-check-config --import ?{Which set|5E-Shaped|Pathfinder-Official|Pathfinder-Community|5E-OGL|3.5}
-
 
 ### Group Combat Simple DC Check:
 
