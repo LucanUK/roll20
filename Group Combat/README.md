@@ -15,6 +15,16 @@
 * !group-init --add-group --Bare initiative_bonus|current
 * !group-init --add-group --Bare npcd_dexterity_mod|current
 
+### Disable some Combat Master Commands (once Only):
+
+* !cmaster --config,timer,key=useTimer,value=false --show,timer
+* !cmaster --config,announcements,key=announceTurn,value=false --show,announce
+
+Or run the following to use the menu system
+
+* !cmaster --main
+
+
 ### To Run Group Init, select a group of tokens, and then use this command (or make it a macro)
 * !group-init
 
