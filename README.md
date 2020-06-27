@@ -14,5 +14,5 @@ Or
 /r 1t[Critical-Miss]
 
 ### Quick Initiative Macro selected (adding to tracker)
-/r 1d20+@{selected|initiative_bonus} &{tracker}
+@{selected|token_name}'s Initiative Roll: [[1d20+@{selected|Initiative_bonus} &{tracker}]]
 
