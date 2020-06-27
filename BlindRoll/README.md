@@ -13,9 +13,9 @@
 ### Macro Usage (i.e Pick Locks)
 !broll 1d20+@{selected|dexterity_mod}+@{selected|pb} For Lockpicking
 
-Or a specific person
+Or a specific person (note the space after the character name)
 
-!broll 1d20+@{Carric Laidon|dexterity_mod}+@{selected|pb} For Lockpicking
+!broll 1d20+@{Carric Laidon |dexterity_mod}+@{selected|pb} For Lockpicking
 
 ### Macro Usage (i.e Check for Traps)
 !broll 1d20+@{selected|perception_bonus} Checking for traps!
