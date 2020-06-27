@@ -1,13 +1,13 @@
 /* global log, _, getObj, HealthColors, playerIsGM, sendChat, on */
-const ApplyDamage = (() => {
+const DeleteDead = (() => {
   "use strict";
-  const version = "1.1",
+  const version = "1.0",
     observers = {
       "change": [],
     },
     boundedBar = false,
     checkInstall = () => {
-      log(`-=> ApplyDamage v${version} <=-`);
+      log(`-=> DeleteDead v${version} <=-`);
     },
     defaultOpts = {
       type: "half",
@@ -66,7 +66,7 @@ const ApplyDamage = (() => {
     handleError = (whisper, errorMsg) => {
       const output = `${whisper}<div style="border:1px solid black;background:#FFBABA;padding:3px">` +
         `<h4>Error</h4><p>${errorMsg}</p></div>`;
-      sendChat("ApplyDamage", output);
+      sendChat("DeleteDead", output);
     },
     finalApply = (results, dmg, type, bar, status) => {
       const barCur = `bar${bar}_value`,
@@ -75,30 +75,16 @@ const ApplyDamage = (() => {
         const token = getObj("graphic", id),
           prev = JSON.parse(JSON.stringify(token || {}));
         let newValue;
-        if (token && !saved) {
-          if (boundedBar) {
-            newValue = Math.min(Math.max(parseInt(token.get(barCur)) - dmg, 0), parseInt(token.get(barMax)));
-          } else {
-            newValue = parseInt(token.get(barCur)) - dmg;
-          }
-          if (status) token.set(`status_${status}`, true);
-        }
-        else if (token && type === "half") {
-          if (boundedBar) {
-            newValue = Math.min(Math.max(parseInt(token.get(barCur)) - Math.floor(dmg / 2), 0), parseInt(token.get(barMax)));
-          } else {
-            newValue = parseInt(token.get(barCur)) - Math.floor(dmg / 2);
-          }
-        }
-        if (!_.isUndefined(newValue)) {
-          if (Number.isNaN(newValue)) newValue = token.get(barCur);
-          token.set(barCur, newValue);
-          notifyObservers("change", token, prev);
-        }
+          newValue = parseInt(token.get(barCur))
+         if (newValue < 1) {
+          token.set(`status_dead`, true);
+		  token.set(`layer`, `gmlayer`);
+		 }
+        
       });
     },
     handleInput = (msg) => {
-      if (msg.type === "api" && msg.content.search(/^!apply-damage\b/) !== -1) {
+      if (msg.type === "api" && msg.content.search(/^!delete-dead\b/) !== -1) {
         const hasValue = ["ids", "saves", "DC", "type", "dmg", "bar", "status"],
           opts = Object.assign({}, defaultOpts, parseOpts(processInlinerolls(msg), hasValue));
         opts.ids = opts.ids.split(/,\s*/g);
@@ -114,7 +100,7 @@ const ApplyDamage = (() => {
           return;
         }
         if (opts.status === "none") {
-          delete opts.status;
+          opts.status = "dead" ;
         }
         if (opts.status && !statusMarkers.includes(opts.status)) {
           handleError(getWhisperPrefix(msg.playerid), "Invalid status.");
@@ -127,13 +113,8 @@ const ApplyDamage = (() => {
         finalApply(results, opts.dmg, opts.type, opts.bar, opts.status);
         const output = `${
           getWhisperPrefix(msg.playerid)
-        }<div style="border:1px solid black;background:#FFF;padding:3px"><p>${
-          (opts.dmg ? `${opts.dmg} damage applied to tokens, with ${
-            (opts.type === "half" ? "half" : "no")
-          } damage on a successful saving throw.` : "")}${
-          (opts.status ? ` ${opts.status} status marker applied to tokens that failed the save.` : "")
-        }</p><a href="!delete-dead --ids ${opts.ids}">Delete Dead</a></div>`;
-        sendChat("ApplyDamage", output, null, { noarchive: true });
+        }<div style="border:1px solid black;background:#FFF;padding:3px"><p>Dead NPC's moved to GM Layer </p></div>`;
+        sendChat("DeleteDead", output, null, { noarchive: true });
       }
       return;
     },
@@ -144,7 +125,7 @@ const ApplyDamage = (() => {
       if (observer && _.isFunction(observer) && observers.hasOwnProperty(event)) {
         observers[event].push(observer);
       } else {
-        log("ApplyDamage event registration unsuccessful.");
+        log("DeleteDead event registration unsuccessful.");
       }
     },
     registerEventHandlers = () => {
@@ -160,9 +141,9 @@ const ApplyDamage = (() => {
 
 on("ready", () => {
   "use strict";
-  ApplyDamage.checkInstall();
-  ApplyDamage.registerEventHandlers();
+  DeleteDead.checkInstall();
+  DeleteDead.registerEventHandlers();
   if ("undefined" !== typeof HealthColors) {
-    ApplyDamage.registerObserver("change", HealthColors.Update);
+    DeleteDead.registerObserver("change", HealthColors.Update);
   }
 });
