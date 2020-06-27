@@ -7,7 +7,7 @@
 * Combat Master v2.0
 
 ## Manually Add:
-* AppylDamage.js (This Repo)
+* ApplyDamage.js (This Repo)
 
 ### Setup Group Initiative (once Only):
 
