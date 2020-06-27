@@ -76,6 +76,7 @@ const DeleteDead = (() => {
           prev = JSON.parse(JSON.stringify(token || {}));
         let newValue;
           newValue = parseInt(token.get(barCur))
+		  
          if (newValue < 1) {
           token.set(`status_dead`, true);
 		  token.set(`layer`, `gmlayer`);
