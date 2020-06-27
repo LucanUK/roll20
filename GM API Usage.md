@@ -20,12 +20,15 @@ This is the guide for GM's to use API functions
 ## Macro's to Setup
 
 ### Name: group-init
+**Show in Macro Bar - True**
 * ```!group-init```
 
 ### Name: group-init-reroll
+**Show in Macro Bar - True**
 * ```!group-init --reroll```
 
 ### Name: group-DC-check
+**Show in Macro Bar - True**
 * ```!group-check --whisper {{ --?{Save|Dexterity|Constitution|Wisdom} Save --process --subheader vs DC ?{DC} --button ApplyDamage !apply-damage ~dmg [[?{Damage}]] ~type ?{Damage on Save|Half,half|None,none} ~DC ?{DC} ~saves RESULTS(,) ~ids IDS(,) }}```
 
 ### Name: group-init-reroll
