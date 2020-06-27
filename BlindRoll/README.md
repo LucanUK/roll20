@@ -1,9 +1,9 @@
 # Rolling Blind to GM
 
-## Manually Add:
+## GM Manually Add:
 * BlindRoll.js (This Repo)
 
-## Usage
+## Player Usage
 
 !broll <Dice & Modifier> <Descriptive Text>
 
