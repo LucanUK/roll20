@@ -39,12 +39,12 @@ Or run the following to use the menu system
 
 ### Group Combat setup (run once):
 
-!group-check-config --import ?{Which set|5E-Shaped|Pathfinder-Official|Pathfinder-Community|5E-OGL|3.5}
+* !group-check-config --import ?{Which set|5E-Shaped|Pathfinder-Official|Pathfinder-Community|5E-OGL|3.5}
 
 
 ### Group Combat Simple DC Check:
 
-!group-check --whisper --Dexterity Save
+* !group-check --whisper --Dexterity Save
 
 ### Group Combat DC Check (with Damage):
 
