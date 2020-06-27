@@ -19,16 +19,16 @@ This is the guide for the Creator & GM's to setup API Scripts
 
 ### Setup Group Initiative (run once Only):
 
-* !group-init --del-group 1
-* !group-init --add-group --Bare initiative_bonus|current
-* !group-init --add-group --Bare npcd_dexterity_mod|current
+* ```!group-init --del-group 1```
+* ```!group-init --add-group --Bare initiative_bonus|current```
+* ```!group-init --add-group --Bare npcd_dexterity_mod|current```
 
 ### Disable some Combat Master Commands (run once Only):
 
-* !cmaster --config,timer,key=useTimer,value=false --show,timer
-* !cmaster --config,announcements,key=announceTurn,value=false --show,announce
+* ```!cmaster --config,timer,key=useTimer,value=false --show,timer```
+* ```!cmaster --config,announcements,key=announceTurn,value=false --show,announce```
 
 ### Group Combat setup (run once Only):
 
-* !group-check-config --import 5E-OGL
+* ```!group-check-config --import 5E-OGL```
 
