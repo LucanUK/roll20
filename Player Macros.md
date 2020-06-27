@@ -2,7 +2,7 @@
 
 ## Suggested Macros
 
-### Name: Crtical-Hit
+### Name: Critical-Hit
 **Show in Macro Bar - True**
 * ```/r 1t[Critical-Hits]```
 
