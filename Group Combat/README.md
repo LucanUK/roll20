@@ -24,6 +24,7 @@ Or run the following to use the menu system
 
 * !cmaster --main
 
+## Group Initiative
 
 ### To Run Group Init, select a group of tokens, and then use this command (or make it a macro)
 * !group-init
@@ -34,13 +35,20 @@ Or run the following to use the menu system
 ### To make a Dexterity save with GroupCheck, select a group of tokens and enter this command:
 * !group-check --Dexterity Save
 
+## Group combat
+
 ### Group Combat setup (run once):
 
 !group-check-config --import ?{Which set|5E-Shaped|Pathfinder-Official|Pathfinder-Community|5E-OGL|3.5}
 
-### Group Combat Check:
 
-* !group-check {{
+### Group Combat Simple DC Check:
+
+!group-check --whisper --Dexterity Save
+
+### Group Combat DC Check (with Damage):
+
+* !group-check --whisper {{
 --?{Save|Dexterity|Constitution|Wisdom} Save
 --process
 --subheader vs DC ?{DC}
