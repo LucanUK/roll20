@@ -34,6 +34,10 @@ Or run the following to use the menu system
 ### To make a Dexterity save with GroupCheck, select a group of tokens and enter this command:
 * !group-check --Dexterity Save
 
+### Group Combat setup (run once):
+
+!group-check-config --import ?{Which set|5E-Shaped|Pathfinder-Official|Pathfinder-Community|5E-OGL|3.5}
+
 ### Group Combat Check:
 
 * !group-check {{
