@@ -15,7 +15,8 @@ const DeleteDead = (() => {
       saves: "",
       DC: "-1",
       dmg: "0",
-      bar: "1"
+      bar: "1",
+      force: "0"
     },
     statusMarkers = [
       "red", "blue", "green", "brown", "purple", "pink", "yellow", "dead", "skull", "sleepy", "half-heart",
@@ -68,7 +69,7 @@ const DeleteDead = (() => {
         `<h4>Error</h4><p>${errorMsg}</p></div>`;
       sendChat("DeleteDead", output);
     },
-    finalApply = (results, dmg, type, bar, status) => {
+    finalApply = (results, dmg, type, bar, status, force) => {
       const barCur = `bar${bar}_value`,
         barMax = `bar${bar}_max`;
       Object.entries(results).forEach(([id, saved]) => {
@@ -76,8 +77,9 @@ const DeleteDead = (() => {
           prev = JSON.parse(JSON.stringify(token || {}));
         let newValue;
           newValue = parseInt(token.get(barCur))
-		  
-         if (newValue < 1) {
+		let forceValue;
+		    forceValue = parseInt(force)
+         if (newValue < 1 || force === 1) {
           token.set(`status_dead`, true);
 		  token.set(`layer`, `gmlayer`);
 		 }
@@ -86,12 +88,13 @@ const DeleteDead = (() => {
     },
     handleInput = (msg) => {
       if (msg.type === "api" && msg.content.search(/^!delete-dead\b/) !== -1) {
-        const hasValue = ["ids", "saves", "DC", "type", "dmg", "bar", "status"],
+        const hasValue = ["ids", "saves", "DC", "type", "dmg", "bar", "status", "force"],
           opts = Object.assign({}, defaultOpts, parseOpts(processInlinerolls(msg), hasValue));
         opts.ids = opts.ids.split(/,\s*/g);
         opts.saves = opts.saves.split(/,\s*/g);
         opts.DC = parseInt(opts.DC);
         opts.dmg = parseInt(opts.dmg);
+        opts.force = parseInt(opts.force);
         if (!playerIsGM(msg.playerid) && getObj("player", msg.playerid)) {
           handleError(getWhisperPrefix(msg.playerid), "Permission denied.");
           return;
@@ -111,7 +114,7 @@ const DeleteDead = (() => {
           m[id] = parseInt(opts.saves[k] || "0") >= opts.DC;
           return m;
         }, {});
-        finalApply(results, opts.dmg, opts.type, opts.bar, opts.status);
+        finalApply(results, opts.dmg, opts.type, opts.bar, opts.status, opts.force);
         const output = `${
           getWhisperPrefix(msg.playerid)
         }<div style="border:1px solid black;background:#FFF;padding:3px"><p>Dead NPC's moved to GM Layer </p></div>`;
