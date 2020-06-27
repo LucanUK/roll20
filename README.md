@@ -4,15 +4,11 @@ A repo of Commands and Scripts used for AGM D&D Games
 
 Additional information can be found in the readme.md files for each sub folder
 
-## Useful Macro's
+## GM Guides
 
-### Rolling against Crit or Fumble tables (and others)
-* /r 1t[Critical-Hits]
+* GM API Setup Guide - https://github.com/LucanUK/roll20/blob/master/GM%20API%20Setup.md
+* GM API Usage Guide - https://github.com/LucanUK/roll20/blob/master/GM%20API%20Usage.md
 
-Or
+## Player Guides
 
-* /r 1t[Critical-Miss]
-
-### Quick Initiative Macro selected (adding to tracker)
-* @{selected|token_name}'s Initiative Roll: [[1d20+@{selected|Initiative_bonus} &{tracker}]]
-
+* Player Macro Guide - https://github.com/LucanUK/roll20/blob/master/Player%20Macros.md
