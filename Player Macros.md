@@ -16,7 +16,7 @@
 
 ### Name: Blind-Roll
 **Show in Macro Bar - True**
-* ```!broll ?{Number Of Dice|1}?{Dice Type|d4|d8|d10|d20|d100}+?{Modifier|0} Blind```
+* ```!broll ?{Number Of Dice|1}?{Dice Type|d4|d8|d10|d12|d20|d100}+?{Modifier|0} Blind```
 
 ## Optional Macro Examples
 
