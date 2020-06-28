@@ -26,7 +26,7 @@
 
 ### Name: Lockpick-Selected
 **Show as Token Action - True**
-* ```!broll 1d20+@{selected|dexterity_mod}+@{selected|pb} For Lockpicking```
+* ```!broll 1d20+@{selected|dexterity_mod}+@{selected|thieves'_tools_prof} For Lockpicking```
 
 ### Name: Lockpick-Rogue
 **Show in Macro Bar - True**
