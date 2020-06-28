@@ -14,6 +14,10 @@
 **Show as Token Action - True**
 * ```@{selected|token_name}'s Initiative Roll: [[1d20+@{selected|Initiative_bonus} &{tracker}]]```
 
+### Name: Roll-HitDice
+**Show as Token Action - True**
+* ```!hitdice-mc```
+
 ### Name: Blind-Roll
 **Show in Macro Bar - True**
 * ```!broll ?{Number Of Dice|1}?{Dice Type|d4|d8|d10|d12|d20|d100}+?{Modifier|0} Blind```
