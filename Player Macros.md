@@ -26,7 +26,7 @@
 
 ### Name: Lockpick-Rogue
 **Show in Macro Bar - True**
-* ```!broll 1d20+@{Carric Laidon|dexterity_mod}+@{Carric Laidon|pb} For Lockpicking```
+* ```!broll 1d20+@{Carric Laidon|dexterity_mod}+@{Carric Laidon|thieves'_tools_prof} For Lockpicking```
 
 ### Name: Check-Traps
 **Show as Token Action - True**
