@@ -1,6 +1,6 @@
 on('chat:message', function(msg) {
 // ROLL LISTENER
-    if(msg.playerid.toLowerCase() != "api" && msg.rolltemplate) {
+    if(msg.rolltemplate) {
         var cnamebase = msg.content.split("charname=")[1];
         var cname = cnamebase ? cnamebase.replace('}}','').trim() : (msg.content.split("{{name=")[1]||'').split("}}")[0].trim();
         var character = cname ? findObjs({name: cname, type: 'character'})[0] : undefined;
@@ -35,10 +35,16 @@ var handlehd = function (msg,character) {
         sendChat(msg.who, "<div class='sheet-rolltemplate-simple' style='margin-top:-7px;'><div class='sheet-container'><div class='sheet-label' style='margin-top:5px;'><span>" + character.get("name") + " has no HD remaining, HP were not applied." + "</span></div></div></div>");
     }
     else {
+		log(msg);
         hd.set({current:newhd});
         var maxhp = parseInt(hp.get("max"));
         var curhp = parseInt(hp.get("current"));
-        var result = msg.inlinerolls[2].results.total ? msg.inlinerolls[2].results.total : false;
+		if(msg.playerid.toLowerCase() != "api") {
+        	var result = msg.inlinerolls[2].results.total ? msg.inlinerolls[2].results.total : false;
+		}
+		else {
+				var result = msg.inlinerolls[0].results.total ? msg.inlinerolls[0].results.total : false;
+		}
         var newhp = curhp + result;
         if(result === false) {
             log("FAILED TO GET HD RESULT");
