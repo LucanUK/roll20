@@ -8,6 +8,8 @@ on('chat:message', function(msg) {
             if(_.has(msg,'inlinerolls') && msg.content.indexOf("^{hit-dice-u}") > -1 && character) {
                 handlehd(msg,character);
             }
+			log(msg.content);
+			log(msg.rolltemplate);
         }
     }
 });
