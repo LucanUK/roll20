@@ -16,7 +16,7 @@ This is the guide for the Creator & GM's to setup API Scripts
 * BlindRoll.js (This Repo) https://raw.githubusercontent.com/LucanUK/roll20/master/BlindRoll/BlindRoll.js
 * HitDiceAuto.js (This Repo) https://raw.githubusercontent.com/LucanUK/roll20/master/HitDice%20Multiclass/HitDiceAuto.js
 * HitDiceMulticlass.js (This Repo) https://raw.githubusercontent.com/LucanUK/roll20/master/HitDice%20Multiclass/HitDiceMulticlass.js
-* APIHeartBeat (This Repo) https://github.com/LucanUK/roll20/blob/master/APIHeartBeat/APIHeartBeat.js
+* APIHeartBeat.js (This Repo) https://github.com/LucanUK/roll20/blob/master/APIHeartBeat/APIHeartBeat.js
 
 ## Commands to run ingame
 
