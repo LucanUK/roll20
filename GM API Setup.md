@@ -30,6 +30,7 @@ This is the guide for the Creator & GM's to setup API Scripts
 * ```!cmaster --config,announcements,key=announceTurn,value=false --show,announce```
 * ```!cmaster --config,turnorder,key=useMarker,value=false --show,turnorder```
 * ```!cmaster --config,turnorder,key=centerToken,value=false --show,turnorder```
+* ```!cmaster --config,initiative,key=rollEachRound,value=true --show,initiative```
 
 ### Group Combat setup (run once Only):
 
